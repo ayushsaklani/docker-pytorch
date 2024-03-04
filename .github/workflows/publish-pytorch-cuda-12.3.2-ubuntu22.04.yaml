@@ -4,8 +4,7 @@ on:
   push:
     branches:
     - master
-    paths:
-    - dockerfiles/pytorch-cuda12.3.2-ubuntu22.04/*
+    paths: 
     - .github/workflows/publish-pytorch-cuda-12.3.2-ubuntu22.04.yaml
   
 
