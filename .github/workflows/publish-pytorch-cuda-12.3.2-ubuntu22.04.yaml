@@ -1,0 +1,26 @@
+name : Publish pytorch-cuda-12.3.2-ubuntu22.04
+
+on:
+  push:
+    branches:
+    - master
+    paths:
+    - dockerfiles/pytorch-cuda12.3.2-ubuntu22.04/*
+    - .github/workflows/publish-pytorch-cuda-12.3.2-ubuntu22.04.yaml
+  
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Navigate to Dockerfile Directory
+      run: cd dockerfiles/pytorch-cuda12.3.2-ubuntu22.04/
+    
+    - name: Build Docker Image
+        run:
+            docker login --username ayushsaklani --password ${{secrets.GHCR}} ghcr.io
+            docker build . -t ghcr.io/ayushsaklani/pytorch-cuda-12.3.2-ubuntu22.04:latest
+            docker push ghcr.io/ayushsaklani/pytorch-cuda12.3.2-ubuntu22.04:latest
