@@ -3,7 +3,7 @@ name : Publish pytorch-cuda-12.3.2-ubuntu22.04
 on:
   push:
     branches:
-    - master
+    - main
     paths: 
     - .github/workflows/publish-pytorch-cuda-12.3.2-ubuntu22.04.yaml
   
