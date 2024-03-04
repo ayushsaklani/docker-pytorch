@@ -20,6 +20,6 @@ jobs:
     
     - name: Build Docker Image
       run:
-          docker login --username ayushsaklani --password ${{secrets.GHCR}} ghcr.io
-          docker build . -t ghcr.io/ayushsaklani/pytorch-cuda-12.3.2-ubuntu22.04:latest
-          docker push ghcr.io/ayushsaklani/pytorch-cuda-12.3.2-ubuntu22.04:latest
+        docker login --username ayushsaklani --password ${{secrets.GHCR}} ghcr.io
+        docker build . --tag ghcr.io/ayushsaklani/pytorch-cuda-12.3.2-ubuntu22.04:latest
+        docker push ghcr.io/ayushsaklani/pytorch-cuda-12.3.2-ubuntu22.04:latest
